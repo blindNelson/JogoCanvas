@@ -5,29 +5,43 @@ const quadrado = {
     fPulo:25.6,velQueda:0,fg:1.6,
 
     atualiza:function(){
+
+        //atualiza a posição do quadrado na tela
         this.cair()
-        console.log("atualizando")
+        console.log("quadrado.atualiza()")          //registra na tela
+
     },
+
     cair:function(){
-        console.log("no ar")
+        console.log("quadrado.cair()")              //registra na tela
+
         if(this.velQueda!=0){
+
         this.velQueda += this.fg
         this.qy += this.velQueda
+        
         }
         else
-            console.log("não vai!!!")
+            console.log("quadrado.cair() - erro")   //registra na tela
         
     },
+
     pular:function(){
-        console.log("pulando")
         if(this.velQueda==0){
-            this.velQueda = -this.fPulo
+
+        this.velQueda = -this.fPulo
+        console.log("quadrado.pula()")              //registra na tela
+
         }
+
         else
-            console.log("fracassou")
+            console.log("quadrado.pula() - erro")   //registra na tela
+
     },
 
     desenha:function(){
+
         draw(this.qx,this.qy,this.qAltura,this.qLargura,this.qCor)
+    
     }
 }

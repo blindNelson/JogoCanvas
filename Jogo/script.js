@@ -1,6 +1,10 @@
+/* ========================= Inicialização de variaveis e constantes ========================== */
+
 var largura, altura
-var canvas, cntx
+var canvas, cntx, timeout
 var estadoAtual, vel = 20
+
+const tempo = 5000;
 
 
 let Estado = {
@@ -9,40 +13,89 @@ let Estado = {
     pausado: 2
 }
 
+/* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- 
+
+
+
+
+
+   ========================= Criação e inicialização de elementos ========================== */
+
 function createCanvas(){
+
     canvas          = document.querySelector("#canv")
     canvas.height   = 500
     canvas.width    = largura
     cntx            = canvas.getContext("2d")
     //document.body.appendChild(canvas)
     document.addEventListener("keydown", controle)
+
 }
 
-function atualizar(){
-    quadrado.atualiza()
+function main(){
+
+    largura = 500
+    altura = 500
+    estadoAtual = Estado.jogando
+    createCanvas()
+    timeout = setInterval(roda() , 30)
+
+    //while(estadoAtual==1) 
+
 }
+
+/* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- 
+
+
+uma ideia seria implementar um metodo apenas para fazer os frames rodarem
+
+
+   ================================ Funções Importantes ===================================== */
+
+function roda(){
+
+    //console.log('roda()')
+
+    //atualizar();
+    //desenha();
+
+    console.log('rodando')
+
+    //window.requestAnimationFrame(roda);
+    
+}
+
+function parar(){ timeout.clearInterval() }
+
+
+/* /|\|/|\|/|\|/|\|/|\|/|\|/|\|/|\|/|\|/|\|/|\|/|\|/|\|/ */
+
+
+function atualizar(){
+
+    quadrado.atualiza()
+
+}
+
+
 
 function desenha(){
     
     /*console.log(quadrado.cor)
     cntx.fillStyle = quadrado.cor
     cntx.fillRect(quadrado.x, quadrado.y, quadrado.altura, quadrado.largura)*/
+
+
     quadrado.desenha()
 }
 
-function roda(){
-    atualizar();
-    desenha();
-    setTimeout(100000)
-}
+/* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- 
 
-function main(){
-    largura = 500
-    altura = 500
-    createCanvas()
-    roda()
-    window.requestAnimationFrame(roda)
-}
+
+
+
+
+   ====================================== Listenners ======================================== */
 
 function controle(event){
 
