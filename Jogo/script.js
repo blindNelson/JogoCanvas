@@ -61,8 +61,8 @@ function controle(event){
             if(quadrado.qx+vel <= largura - quadrado.qLargura)  {quadrado.qx+=vel}
         },
         ArrowUp:function(){
-            //console.log("pular")
-            //quadrado.pular()
+            console.log("pular")
+            quadrado.pular()
         }
     }
     const movimento = Movimento[key]
